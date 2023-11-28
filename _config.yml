@@ -82,8 +82,8 @@ analytics:
 author:
   name             : "Filip Grigorov"
   avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
-  location         : "Toronto, Ontario"
+  bio              : "MSc in Computer Science at University of Toronto and Staff Computer Vision Research Engineer at TORC Robotics"
+  location         : "Toronto, Ontario, Canada"
   employer         :
   #pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   #googlescholar    : "http://yourfullgooglescholarurl.com"
@@ -102,8 +102,8 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         :
-  orcid            : "http://orcid.org/yourorcidurl"
+  linkedin         : http://linkedin.com/in/filip-grigorov-0143a259
+  #orcid            : "http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
