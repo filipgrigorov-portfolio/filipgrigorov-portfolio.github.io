@@ -11,7 +11,7 @@ redirect_from:
 
 Education
 ======
-* DEC Pure and Applied Science (Physics/Mathematics)(Dean's Honours List), Dawson College, 2004-2006
+* DEC Pure and Applied Science (physics and mathematics) (Dean's Honours List), Dawson College, 2004-2006
 * BCom Finance, McGill University, 2006-2009
 * BEng Mechanical Engineering (Dean's Honours List), McGill University, 2010-2013
 * MSc in Computer Science, University of Toronto, 2023-present
@@ -27,7 +27,7 @@ Work experience
 
 * Torc Robotics: Staff Computer Vision Engineer, 2023-present
 
-* Algolux: Senior Computer Vision/Deep Learning Research Engineer, 2021-2023 (Acquired by Torc Robotics)
+* Algolux: Senior Computer Vision/Deep Learning Research Engineer, 2021-2023 (**Acquired by Torc Robotics**)
   * Owning research and development of our multi-object 2D/3D tracker
   * Owning research and development of our stereo, geometric and 3D post-processing
   * Developing stereo-based dense depth estimation
