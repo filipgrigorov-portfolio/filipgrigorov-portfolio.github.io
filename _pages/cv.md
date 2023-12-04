@@ -23,7 +23,7 @@ Honours and Awards
 
 Work experience
 ======
-* Vector Institute: Faculty Affiliate Researcher, 2023
+* Vector Institute: Faculty Affiliate Researcher, 2023-present
 
 * Torc Robotics: Staff Computer Vision Engineer, 2023-present
 
