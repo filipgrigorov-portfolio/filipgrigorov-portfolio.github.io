@@ -14,4 +14,4 @@ I am a Vector Institute affiliate researcher and I am also affiliated with the R
 
 I am a staff computer vision engineer at TORC Robotics, on a full-time basis, working on the perception side of our self-driving software stack.
 
-My research interests are in computer vision, reinforcement learning in robotics, generative AI and physics-based simulations.
+My research interests are in computer vision, reinforcement learning for robotics trained in simulation, generative AI and physics-based simulations.
