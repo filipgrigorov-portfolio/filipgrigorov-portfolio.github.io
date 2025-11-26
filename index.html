@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filip Grigorov - Computer Vision Researcher & Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.light-theme {
+            background: #f8f9fa;
+            color: #1a1a1a;
+        }
+
+        body.light-theme .gradient-bg {
+            opacity: 0.05;
+        }
+
+        body.light-theme nav {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme .nav-links a {
+            color: #1a1a1a;
+        }
+
+        body.light-theme .hero-text .subtitle,
+        body.light-theme .section-subtitle,
+        body.light-theme .pub-meta span,
+        body.light-theme .timeline-item .date {
+            color: #666;
+        }
+
+        body.light-theme .hero-text p,
+        body.light-theme .timeline-item p,
+        body.light-theme .pub-abstract,
+        body.light-theme .pub-authors,
+        body.light-theme .interest-card p {
+            color: #444;
+        }
+
+        body.light-theme .section-title,
+        body.light-theme .hero-text h1,
+        body.light-theme .timeline-item h3,
+        body.light-theme .pub-title {
+            color: #1a1a1a;
+        }
+
+        body.light-theme .floating-card,
+        body.light-theme .timeline-item,
+        body.light-theme .skill-card,
+        body.light-theme .publication-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme .floating-card:hover,
+        body.light-theme .timeline-item:hover,
+        body.light-theme .skill-card:hover,
+        body.light-theme .publication-card:hover {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        body.light-theme .interest-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            border-color: rgba(102, 126, 234, 0.2);
+        }
+
+        body.light-theme .btn-secondary {
+            background: rgba(0, 0, 0, 0.05);
+            color: #1a1a1a;
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        body.light-theme .btn-secondary:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme .social-link {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.1);
+            color: #1a1a1a;
+        }
+
+        body.light-theme .card-desc,
+        body.light-theme .card-title {
+            color: #444;
+        }
+
+        body.light-theme .theme-toggle {
+            background: rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Animated gradient background */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 5%;
+            background: rgba(10, 10, 10, 0.95);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Education logo css */
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .institution-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Awards section */
+        #awards {
+            padding: 4rem 0;
+        }
+
+        .awards-grid {
+            max-width: 800px;
+            margin: 2rem auto 0;
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .award-item {
+            display: flex;
+            align-items: center;
+            padding: 1.1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .award-year {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-right: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .award-name {
+            margin: 0;
+            font-size: 1.05rem;
+        }
+
+        .award-meta {
+            margin: 0.15rem 0 0;
+            font-size: 0.9rem;
+            opacity: 0.75;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            width: 60px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .theme-toggle-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 22px;
+            height: 22px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .theme-toggle.light .theme-toggle-slider {
+            left: 33px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+            border: 4px solid rgba(102, 126, 234, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 70px rgba(102, 126, 234, 0.6);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero-text .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: #a0a0a0;
+            margin-bottom: 2rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #d0d0d0;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        .floating-card {
+            position: absolute;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .card-1 {
+            top: 50px;
+            left: 0;
+            animation-delay: 0s;
+        }
+
+        .card-2 {
+            top: 200px;
+            right: 50px;
+            animation-delay: 2s;
+        }
+
+        .card-3 {
+            bottom: 50px;
+            left: 100px;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #a0a0a0;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -48px;
+            top: 2rem;
+            width: 16px;
+            height: 16px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid #0a0a0a;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.3);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .company {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .date {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item p {
+            color: #d0d0d0;
+            line-height: 1.8;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px);
+            border-color: #667eea;
+        }
+
+        .skill-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-icon {
+            font-size: 1.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #a0a0ff;
+        }
+
+        /* Publications & Patents */
+        .publications-grid {
+            display: grid;
+            gap: 2.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .publication-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .publication-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .publication-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(10px);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .pub-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(102, 126, 234, 0.2);
+            border: 1px solid rgba(102, 126, 234, 0.4);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #a0a0ff;
+            margin-bottom: 1rem;
+        }
+
+        .pub-badge.patent {
+            background: rgba(240, 147, 251, 0.2);
+            border-color: rgba(240, 147, 251, 0.4);
+            color: #f0a0ff;
+        }
+
+        .pub-content {
+            margin-left: 1rem;
+        }
+
+        .pub-journal {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            color: #ffffff;
+        }
+
+        .pub-authors {
+            color: #d0d0d0;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .pub-authors strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .pub-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .pub-meta span {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        .pub-abstract {
+            color: #d0d0d0;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .pub-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .pub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 25px;
+            color: #a0a0ff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .pub-link:hover {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Research Interests */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .interest-card {
+            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .interest-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .interest-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .interest-card p {
+            color: #d0d0d0;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-left {
+                align-items: center;
+            }
+
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+                font-size: 4rem;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-right {
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+
+            .timeline-item::before {
+                left: -38px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-bg"></div>
+
+    <nav id="navbar">
+        <div class="nav-content">
+            <div class="logo">FG</div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#teaching">Teaching</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#awards">Awards</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="theme-toggle" id="themeToggle">
+                    <div class="theme-toggle-slider">🌙</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="profile-photo">
+                    <!-- Replace the emoji below with: <img src="your-photo.jpg" alt="Filip Grigorov"> -->
+                    <!-- 👨‍💻 -->
+                    <img src="profile.png" alt="Filip Grigorov">
+                </div>
+                <div class="hero-text">
+                    <h1>
+                        Hi, I'm <span class="gradient-text">Filip Grigorov</span>
+                    </h1>
+                    <p class="subtitle">Computer Vision/Robotics Researcher & Engineer</p>
+                    <p>
+                        Graduate student at University of Toronto, part of the embARC research group, and Staff Computer Vision Engineer at TORC Robotics. Passionate about advancing autonomous systems through cutting-edge perception, robotics and AI research.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                        <a href="#publications" class="btn btn-secondary">View Publications</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <div class="card-icon">🤖</div>
+                    <div class="card-title">Robotics/AI Research</div>
+                    <div class="card-desc">Vector Institute/Robotics Institute of UofT</div>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-icon">🚗</div>
+                    <div class="card-title">Autonomous Driving</div>
+                    <div class="card-desc">TORC Robotics</div>
+                </div>
+                <div class="floating-card card-3">
+                    <div class="card-icon">🎓</div>
+                    <div class="card-title">Graduate Research</div>
+                    <div class="card-desc">University of Toronto</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">My journey in AI and autonomous systems</p>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Machine Learning Technical Lead – Calibration, Odometry &amp; Localization</h3>
+                <div class="company">Torc Robotics</div>
+                <div class="date">2025 – Present</div>
+                <p>
+                    Leading the calibration, odometry, and localization team for autonomous driving. 
+                    Owning the visual odometry architecture (classical and learned), advancing keypoint-based 
+                    perception models, defining the technical roadmap, and mentoring engineers while aligning 
+                    the stack with product and platform strategy.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Affiliate Researcher</h3>
+                <div class="company">Vector Institute &amp; University of Toronto Robotics Institute</div>
+                <div class="date">2023 – Present</div>
+                <p>
+                    Collaborating with academic partners on research at the intersection of computer vision, robotics, 
+                    and AI systems, connecting industrial autonomous-driving work with fundamental research directions.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Staff Computer Vision / Deep Learning Engineer</h3>
+                <div class="company">Torc Robotics</div>
+                <div class="date">2023 – 2024</div>
+                <p>
+                    Drove deployment of perception modules on target hardware in real time after the Algolux acquisition. 
+                    Led research on weather-robust perception, helped define image inference product requirements, and 
+                    contributed to the design and integration of core features across the self-driving software stack.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Senior Computer Vision / Deep Learning Researcher &amp; Engineer</h3>
+                <div class="company">Algolux</div>
+                <div class="date">2021 – 2023</div>
+                <p>
+                    Led R&amp;D for multi-object 2D/3D tracking and stereo-based perception, improving tracking accuracy and 
+                    enabling dense depth estimation. Architected and deployed real-time embedded detection models and 
+                    TensorRT-accelerated networks as part of the production perception stack and inference engine.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Senior Computer Vision / Machine Learning Researcher</h3>
+                <div class="company">Alcatraz AI</div>
+                <div class="date">2018 – 2021</div>
+                <p>
+                    Built multi-face tracking, tailgate detection, and spoof-detection systems for access control. 
+                    Designed auto-annotation and data pipelines, optimized models for edge devices, and integrated 
+                    computer vision algorithms into a highly optimized C++/CUDA production codebase.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Computer Vision / Machine Learning Researcher</h3>
+                <div class="company">Gameloft</div>
+                <div class="date">2016 – 2018</div>
+                <p>
+                    Developed intelligent systems for robotic mobile-game testing, including detection pipelines, OCR, 
+                    reinforcement learning prototypes, and automation frameworks. Worked across C++, Python, and Lua to 
+                    integrate perception, control, and tooling into a unified testing platform.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="teaching">
+        <h2 class="section-title">Teaching Experience</h2>
+        <p class="section-subtitle">Supervision and mentorship</p>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <h3>Academic Intern Supervisor &amp; Mentor</h3>
+                <div class="company">University of Toronto</div>
+                <div class="date">2024 – 2025</div>
+                <p>
+                    Supervised and mentored an intern for the Winter 2023 term, and another for the Fall 2024 and Winter 2025 terms, supporting research skills, engineering practices, and project execution.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Computer Vision Intern Supervisor</h3>
+                <div class="company">Alcatraz AI</div>
+                <div class="date">2019</div>
+                <p>
+                    Supervised two intern research projects focused on bad-light detection and head-pose estimation from minimal data inputs, guiding algorithm design and implementation.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">Academic background and training</p>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <img class="institution-logo" src="university_of_toronto_logo.jpeg" alt="University of Toronto logo">
+                    <div>
+                        <h3>MSc in Computer Science</h3>
+                        <div class="company">University of Toronto, Toronto, ON, Canada</div>
+                        <div class="date">2023 – Present</div>
+                    </div>
+                </div>
+                <p>
+                    Graduate student in the <a href="https://www.embarclab.com/">embARC</a> research group under Professor Nandita Vijaykumar, focusing on computer systems, AI, and robotics.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <img class="institution-logo" src="mcgill_logo.jpeg" alt="McGill University logo">
+                    <div>
+                        <h3>BEng in Mechanical Engineering (Dean’s Honours List)</h3>
+                        <div class="company">McGill University, Montreal, QC, Canada</div>
+                        <div class="date">2010 – 2013</div>
+                    </div>
+                </div>
+                <p>
+                    Training in mechanical design, dynamics, and control, with emphasis on applied mathematics and engineering fundamentals.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <img class="institution-logo" src="mcgill_logo.jpeg" alt="McGill University logo">
+                    <div>
+                        <h3>BCom in Finance (Accounting Concentration)</h3>
+                        <div class="company">McGill University, Montreal, QC, Canada</div>
+                        <div class="date">2006 – 2009</div>
+                    </div>
+                </div>
+                <p>
+                    Business and finance education with a concentration in accounting, providing a foundation in quantitative analysis and decision-making.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <img class="institution-logo" src="dawson_college_logo.jpeg" alt="Dawson College logo">
+                    <div>
+                        <h3>DEC in Pure Science (Dean’s Honours List)</h3>
+                        <div class="company">Dawson College (Honours Program), Montreal, QC, Canada</div>
+                        <div class="date">2004 – 2006</div>
+                    </div>
+                </div>
+                <p>
+                    Intensive honours program in physics and mathematics, building a strong analytical and scientific background.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="awards">
+        <h2 class="section-title">Honours and Awards</h2>
+        <p class="section-subtitle">Selected scholarships</p>
+
+        <div class="awards-grid">
+            <div class="award-item">
+                <div class="award-year">2011</div>
+                <div class="award-body">
+                    <h3 class="award-name">Engineering Class of 1953 Scholarship</h3>
+                    <p class="award-meta">McGill University</p>
+                </div>
+            </div>
+
+            <div class="award-item">
+                <div class="award-year">2012</div>
+                <div class="award-body">
+                    <h3 class="award-name">Ram &amp; Durga Panda Scholarship</h3>
+                    <p class="award-meta">McGill University</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications">
+        <h2 class="section-title">Publications & Patents</h2>
+        <p class="section-subtitle">Selected research contributions and innovations</p>
+        
+        <div class="publications-grid">
+            <div class="publication-card">
+                <div class="pub-badge">Conference Abstract</div>
+                <div class="pub-content">
+                    <div class="pub-journal">ISMRM 22nd Annual Meeting</div>
+                    <h3 class="pub-title">Sub-millimeter conventional fMRI at 3T with a dense, shape-optimized 32-channel posterior head coil</h3>
+                    <div class="pub-authors">
+                        Boris Keil, <strong>Filip Grigorov</strong>, Andre J. van der Kouwe, Lawrence L. Wald, Reza Farivar
+                    </div>
+                    <div class="pub-meta">
+                        <span class="pub-date">📅 2014</span>
+                        <span class="pub-venue">🔬 ISMRM</span>
+                    </div>
+                    <p class="pub-abstract">
+                        High-density 32-channel posterior coil enabling sub-millimeter fMRI at 3T, demonstrating gains in SNR and spatial resolution for visual cortex imaging.
+                    </p>
+                    <!-- No DOI for abstracts; add link if you have one -->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="publications-grid">
+            <div class="publication-card">
+                <div class="pub-badge">Journal Article</div>
+                <div class="pub-content">
+                    <div class="pub-journal">Magnetic Resonance in Medicine</div>
+                    <h3 class="pub-title">Dense, shape-optimized posterior 32-channel coil for submillimeter functional imaging of visual cortex at 3T</h3>
+                    <div class="pub-authors">Reza Farivar, <strong>Filip Grigorov</strong>, Andre J. van der Kouwe, Lawrence L. Wald, Boris Keil</div>
+                    <div class="pub-meta">
+                        <span class="pub-date">📅 July 2015</span>
+                        <span class="pub-venue">🔬 Wiley</span>
+                    </div>
+                    <p class="pub-abstract">Research on optimized MRI coil design for high-resolution functional brain imaging, advancing neuroimaging capabilities at 3 Tesla field strength.</p>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.1002/mrm.25815" target="_blank" class="pub-link">
+                            <span>📄</span> DOI
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="publication-card">
+                <div class="pub-badge patent">US Patent</div>
+                <div class="pub-content">
+                    <div class="pub-journal">US Patent 10,679,443</div>
+                    <h3 class="pub-title">System and method for controlling access to a building with facial recognition</h3>
+                    <div class="pub-authors"><strong>Filip Grigorov</strong>, Maxim Taralov, Vahram Antonyan, Marine Dunoguier, Ventseslav Gaydarzhiev</div>
+                    <div class="pub-meta">
+                        <span class="pub-date">📅 June 2020</span>
+                        <span class="pub-venue">🏢 Alcatraz AI, Inc.</span>
+                    </div>
+                    <p class="pub-abstract">Multi-person facial recognition system for access control using visible light and IR detection, with capability to detect and authenticate multiple individuals simultaneously.</p>
+                    <div class="pub-links">
+                        <a href="https://patents.google.com/patent/US10679443B2/en" target="_blank" class="pub-link">
+                            <span>📜</span> View Patent
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research">
+        <h2 class="section-title">Research Interests</h2>
+        <p class="section-subtitle">Areas where I push the boundaries of AI and robotics</p>
+        
+        <div class="interests-grid">
+            <div class="interest-card">
+                <div class="interest-icon">🤖</div>
+                <h3>Robotics</h3>
+                <p>Next frontier embodied intelligence and robotics that physically interact with the real world</p>
+            </div>
+
+            <div class="interest-card">
+                <div class="interest-icon">🦾</div>
+                <h3>RL for Robotics</h3>
+                <p>Reinforcement learning techniques trained in simulation for real-world robotics</p>
+            </div>
+
+            <div class="interest-card">
+                <div class="interest-icon">👁️</div>
+                <h3>Computer Vision</h3>
+                <p>Advanced perception systems for autonomous vehicles and robotics applications</p>
+            </div>
+
+            <div class="interest-card">
+                <div class="interest-icon">✨</div>
+                <h3>Foundation Models</h3>
+                <p>Foundation models for robotic perception, control, and open-world manipulation and navigation.</p>
+            </div>
+
+            <div class="interest-card">
+                <div class="interest-icon">⚛️</div>
+                <h3>Simulation</h3>
+                <p>Physics-based simulations for training and validating autonomous systems</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">Technologies and tools I work with</p>
+        
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3><span class="skill-icon">🧠</span> Deep Learning</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">keras</span>
+                    <span class="skill-tag">TensorRT</span>
+                    <span class="skill-tag">Executorch</span>
+                    <span class="skill-tag">ONNX</span>
+                    <span class="skill-tag">Large Models</span>
+                    <span class="skill-tag">Transformers</span>
+                    <span class="skill-tag">Diffusion</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3><span class="skill-icon">👁️</span> Computer Vision</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Object Detection</span>
+                    <span class="skill-tag">3D Geometry</span>
+                    <span class="skill-tag">Scene Understanding</span>
+                    <span class="skill-tag">Odometry</span>
+                    <span class="skill-tag">Tracking</span>
+                    <span class="skill-tag">Segmentation</span>
+                    <span class="skill-tag">Image Processing (ISP)</span>
+                    <span class="skill-tag">opencv</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3><span class="skill-icon">🤖</span> Robotics</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">RL</span>
+                    <span class="skill-tag">Robotic Manipulation</span>
+                    <span class="skill-tag">World Models</span>
+                    <span class="skill-tag">VLAs</span>
+                    <span class="skill-tag">Control</span>
+                    <span class="skill-tag">IsaacLab</span>
+                    <span class="skill-tag">SAPIEN</span>
+                    <span class="skill-tag">Mujoco</span>
+                    <span class="skill-tag">rsl_rl</span>
+                    <span class="skill-tag">ROS</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3><span class="skill-icon">💻</span> Programming</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">C/C++</span>
+                    <span class="skill-tag">Shell scripting</span>
+                    <span class="skill-tag">Lua</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-content">
+            <p class="section-subtitle">
+                Interested in collaboration, research opportunities, or just want to chat about AI and autonomous systems? Feel free to reach out!
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/filipgrigorov-portfolio" class="social-link" target="_blank">
+                    <span>💻</span>
+                </a>
+                <a href="https://linkedin.com" class="social-link" target="_blank">
+                    <span>💼</span>
+                </a>
+                <a href="mailto:filipg@cs.toronto.edu" class="social-link">
+                    <span>📧</span>
+                </a>
+                <a href="https://scholar.google.com/citations?user=2VDSh8gAAAAJ&hl=en" class="social-link" target="_blank">
+                    <span>📚</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const themeSlider = themeToggle.querySelector('.theme-toggle-slider');
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            body.classList.add('light-theme');
+            themeToggle.classList.add('light');
+            themeSlider.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            themeToggle.classList.toggle('light');
+            
+            if (body.classList.contains('light-theme')) {
+                themeSlider.textContent = '☀️';
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeSlider.textContent = '🌙';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Animate elements on scroll
+        document.querySelectorAll('.timeline-item, .skill-card, .interest-card, .publication-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
