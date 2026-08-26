@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filip Grigorov - Computer Vision Researcher & Engineer</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Filip Grigorov - Computer Vision Researcher &amp; Engineer</title>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -291,7 +292,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 5%;
+            padding: 8rem 5% 4rem;
             position: relative;
         }
 
@@ -299,34 +300,40 @@
             max-width: 1400px;
             width: 100%;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            grid-template-columns: 230px minmax(380px, 1fr) 520px;
+            gap: 3rem;
+            align-items: start;
         }
 
-        .hero-left {
+        .hero-photo {
             display: flex;
-            flex-direction: column;
-            gap: 2rem;
+            align-items: flex-start;
+            justify-content: center;
+            transform: translateX(-20px);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 500px;
+            align-self: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.6rem;
         }
 
         .profile-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+            width: 230px;
+            height: 300px;
+            border-radius: 24px;
             border: 4px solid rgba(102, 126, 234, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
             box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
             transition: all 0.3s ease;
             overflow: hidden;
         }
 
         .profile-photo:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
             box-shadow: 0 25px 70px rgba(102, 126, 234, 0.6);
         }
 
@@ -334,13 +341,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .hero-text h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.1;
+            object-position: center;
         }
 
         .hero-text .gradient-text {
@@ -419,20 +420,28 @@
         }
 
         .card-1 {
-            top: 50px;
+            top: 40px;
             left: 0;
+            width: 320px;
             animation-delay: 0s;
         }
 
         .card-2 {
-            top: 200px;
-            right: 50px;
+            top: 0;
+            right: 40px;
             animation-delay: 2s;
         }
 
+        .card-4 {
+            top: 245px;
+            right: 0;
+            width: 300px;
+            animation-delay: 1s;
+        }
+
         .card-3 {
-            bottom: 50px;
-            left: 100px;
+            top: 245px;
+            right: 30;
             animation-delay: 4s;
         }
 
@@ -801,9 +810,8 @@
             }
 
             .profile-photo {
-                width: 150px;
-                height: 150px;
-                font-size: 4rem;
+                width: 180px;
+                height: 235px;
             }
 
             .hero-text h1 {
@@ -841,448 +849,436 @@
     </style>
 </head>
 <body>
-    <div class="gradient-bg"></div>
+<div class="gradient-bg"></div>
+<nav id="navbar">
+<div class="nav-content">
+<div class="logo">FG</div>
+<div class="nav-right">
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#teaching">Teaching</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#awards">Awards</a></li>
+<li><a href="#publications">Publications</a></li>
+<li><a href="#research">Research</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<div class="theme-toggle" id="themeToggle">
+<div class="theme-toggle-slider">🌙</div>
+</div>
+</div>
+</div>
+</nav>
+<section class="hero" id="home">
+<div class="hero-content">
 
-    <nav id="navbar">
-        <div class="nav-content">
-            <div class="logo">FG</div>
-            <div class="nav-right">
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#teaching">Teaching</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#awards">Awards</a></li>
-                    <li><a href="#publications">Publications</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="theme-toggle" id="themeToggle">
-                    <div class="theme-toggle-slider">🌙</div>
-                </div>
-            </div>
+    <div class="hero-photo">
+        <div class="profile-photo">
+            <img src="profile1.png" alt="Filip Grigorov">
         </div>
-    </nav>
+    </div>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-left">
-                <div class="profile-photo">
-                    <!-- Replace the emoji below with: <img src="your-photo.jpg" alt="Filip Grigorov"> -->
-                    <!-- 👨‍💻 -->
-                    <img src="profile.png" alt="Filip Grigorov">
-                </div>
-                <div class="hero-text">
-                    <h1>
-                        Hi, I'm <span class="gradient-text">Filip Grigorov</span>
-                    </h1>
-                    <p class="subtitle">Computer Vision/Robotics Researcher & Engineer</p>
-                    <p>
-                        Graduate student at University of Toronto, part of the embARC research group, and Staff Computer Vision Engineer at TORC Robotics. Passionate about advancing autonomous systems through cutting-edge perception, robotics and AI research.
-                    </p>
-                    <div class="cta-buttons">
-                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                        <a href="#publications" class="btn btn-secondary">View Publications</a>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="floating-card card-1">
-                    <div class="card-icon">🤖</div>
-                    <div class="card-title">Robotics/AI Research</div>
-                    <div class="card-desc">Vector Institute/Robotics Institute of UofT</div>
-                </div>
-                <div class="floating-card card-2">
-                    <div class="card-icon">🚗</div>
-                    <div class="card-title">Autonomous Driving</div>
-                    <div class="card-desc">TORC Robotics</div>
-                </div>
-                <div class="floating-card card-3">
-                    <div class="card-icon">🎓</div>
-                    <div class="card-title">Graduate Research</div>
-                    <div class="card-desc">University of Toronto</div>
-                </div>
-            </div>
+    <div class="hero-text">
+        <h1>
+            Hi, I'm <span class="gradient-text">Filip Grigorov</span>
+        </h1>
+
+        <p class="subtitle">
+            Robotics &amp; Computer Vision Researcher | Applied Scientist &amp; ML/AI Technical Leader
+        </p>
+
+        <p>
+            Faculty Affiliate Researcher at the Vector Institute and MSc graduate in
+            Computer Science from the University of Toronto. My primary focus is
+            robotics and computer vision, with broader work across machine learning
+            and AI, including recent research in LLM compression, pruning, and model
+            optimization.
+        </p>
+
+        <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            <a href="#publications" class="btn btn-secondary">View Publications</a>
         </div>
-    </section>
+    </div>
 
-    <section id="experience">
-        <h2 class="section-title">Experience</h2>
-        <p class="section-subtitle">My journey in AI and autonomous systems</p>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <h3>Machine Learning Technical Lead – Calibration, Odometry &amp; Localization</h3>
-                <div class="company">Torc Robotics</div>
-                <div class="date">2025 – Present</div>
-                <p>
-                    Leading the calibration, odometry, and localization team for autonomous driving. 
-                    Owning the visual odometry architecture (classical and learned), advancing keypoint-based 
-                    perception models, defining the technical roadmap, and mentoring engineers while aligning 
-                    the stack with product and platform strategy.
-                </p>
-            </div>
+    <div class="hero-visual">
+        <div class="floating-card card-1">
+            <div class="card-icon">🤖</div>
+            <div class="card-title">Robotics/AI Research</div>
+            <div class="card-desc">Vector Institute/Robotics Institute of UofT</div>
+        </div>
 
-            <div class="timeline-item">
-                <h3>Affiliate Researcher</h3>
-                <div class="company">Vector Institute &amp; University of Toronto Robotics Institute</div>
-                <div class="date">2023 – Present</div>
-                <p>
-                    Collaborating with academic partners on research at the intersection of computer vision, robotics, 
-                    and AI systems, connecting industrial autonomous-driving work with fundamental research directions.
-                </p>
-            </div>
+        <div class="floating-card card-2">
+            <div class="card-icon">🚗</div>
+            <div class="card-title">Autonomous Driving</div>
+            <div class="card-desc">TORC Robotics</div>
+        </div>
 
-            <div class="timeline-item">
-                <h3>Staff Computer Vision / Deep Learning Engineer</h3>
-                <div class="company">Torc Robotics</div>
-                <div class="date">2023 – 2024</div>
-                <p>
+        <div class="floating-card card-3">
+            <div class="card-icon">🎓</div>
+            <div class="card-title">Graduate Research</div>
+            <div class="card-desc">University of Toronto</div>
+        </div>
+
+        <div class="floating-card card-4">
+            <div class="card-icon">🧠</div>
+            <div class="card-title">LLM Compression &amp; Pruning</div>
+            <div class="card-desc">Sparsity · Model Optimization</div>
+        </div>
+    </div>
+</div>
+</section>
+<section id="experience">
+<h2 class="section-title">Experience</h2>
+<p class="section-subtitle">My journey in AI and autonomous systems</p>
+<div class="timeline"><div class="timeline-item">
+<h3>Founding Lead Applied Scientist</h3>
+<div class="company">Prizmal</div>
+<div class="date">Oct 2025 – Present</div>
+<p>
+            Researching and building efficient AI systems, including large-language-model compression,
+            pruning and sparsification, model routing, and prompt optimization. Developed methods aimed at
+            preserving principal subspaces and model quality under aggressive compression, and built routing
+            systems that direct requests to the most cost-effective capable model. Also use agentic coding
+            tools to accelerate research iteration and engineering velocity.
+        </p>
+</div>
+<div class="timeline-item">
+<h3>Machine Learning Technical Lead – Calibration, Odometry &amp; Localization</h3>
+<div class="company">Torc Robotics</div>
+<div class="date">Jan 2025 – Oct 2025</div>
+<p>Led calibration, odometry, and localization work for autonomous driving. Owned and evolved classical and learned visual-odometry architectures, advanced keypoint-based perception models, implemented stereo co-factor-graph visual odometry, defined the technical roadmap, and mentored engineers.</p>
+</div>
+<div class="timeline-item">
+<h3>Faculty Affiliate Researcher</h3>
+<div class="company">Vector Institute</div>
+<div class="date">Jun 2023 – Present</div>
+<p>Affiliated researcher working at the intersection of artificial intelligence, computer vision, robotics, and efficient machine learning systems.</p>
+</div><div class="timeline-item">
+<h3>Graduate Student Researcher in Computer Science</h3>
+<div class="company">University of Toronto &amp; University of Toronto Robotics Institute</div>
+<div class="date">Jun 2023 – Jun 2026</div>
+<p>
+                Part-time researcher in the embARC research group under Professor Nandita Vijaykumar,
+                working on computer vision, generative AI for simulation, robotics, multimodal training,
+                physics-based simulation, and reinforcement learning for robotics in simulated environments.
+            </p>
+</div>
+<div class="timeline-item">
+<h3>Staff Computer Vision / Deep Learning Engineer</h3>
+<div class="company">Torc Robotics</div>
+<div class="date">2023 – 2024</div>
+<p>
                     Drove deployment of perception modules on target hardware in real time after the Algolux acquisition. 
                     Led research on weather-robust perception, helped define image inference product requirements, and 
                     contributed to the design and integration of core features across the self-driving software stack.
                 </p>
-            </div>
-
-            <div class="timeline-item">
-                <h3>Senior Computer Vision / Deep Learning Researcher &amp; Engineer</h3>
-                <div class="company">Algolux</div>
-                <div class="date">2021 – 2023</div>
-                <p>
+</div>
+<div class="timeline-item">
+<h3>Senior Computer Vision / Deep Learning Researcher &amp; Engineer</h3>
+<div class="company">Algolux</div>
+<div class="date">2021 – 2023</div>
+<p>
                     Led R&amp;D for multi-object 2D/3D tracking and stereo-based perception, improving tracking accuracy and 
                     enabling dense depth estimation. Architected and deployed real-time embedded detection models and 
                     TensorRT-accelerated networks as part of the production perception stack and inference engine.
                 </p>
-            </div>
-
-            <div class="timeline-item">
-                <h3>Senior Computer Vision / Machine Learning Researcher</h3>
-                <div class="company">Alcatraz AI</div>
-                <div class="date">2018 – 2021</div>
-                <p>
+</div>
+<div class="timeline-item">
+<h3>Senior Computer Vision / Machine Learning Researcher</h3>
+<div class="company">Alcatraz AI</div>
+<div class="date">2018 – 2021</div>
+<p>
                     Built multi-face tracking, tailgate detection, and spoof-detection systems for access control. 
                     Designed auto-annotation and data pipelines, optimized models for edge devices, and integrated 
                     computer vision algorithms into a highly optimized C++/CUDA production codebase.
                 </p>
-            </div>
-
-            <div class="timeline-item">
-                <h3>Computer Vision / Machine Learning Researcher</h3>
-                <div class="company">Gameloft</div>
-                <div class="date">2016 – 2018</div>
-                <p>
+</div>
+<div class="timeline-item">
+<h3>Computer Vision / Machine Learning Researcher</h3>
+<div class="company">Gameloft</div>
+<div class="date">2016 – 2018</div>
+<p>
                     Developed intelligent systems for robotic mobile-game testing, including detection pipelines, OCR, 
                     reinforcement learning prototypes, and automation frameworks. Worked across C++, Python, and Lua to 
                     integrate perception, control, and tooling into a unified testing platform.
                 </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="teaching">
-        <h2 class="section-title">Teaching Experience</h2>
-        <p class="section-subtitle">Supervision and mentorship</p>
-
-        <div class="timeline">
-
-            <div class="timeline-item">
-                <h3>Academic Intern Supervisor &amp; Mentor</h3>
-                <div class="company">University of Toronto</div>
-                <div class="date">2024 – 2025</div>
-                <p>
+</div>
+</div>
+</section>
+<section id="teaching">
+<h2 class="section-title">Teaching Experience</h2>
+<p class="section-subtitle">Supervision and mentorship</p>
+<div class="timeline">
+<div class="timeline-item">
+<h3>Academic Intern Supervisor &amp; Mentor</h3>
+<div class="company">University of Toronto</div>
+<div class="date">2023 – 2025</div>
+<p>
                     Supervised and mentored an intern for the Winter 2023 term, and another for the Fall 2024 and Winter 2025 terms, supporting research skills, engineering practices, and project execution.
                 </p>
-            </div>
-
-            <div class="timeline-item">
-                <h3>Computer Vision Intern Supervisor</h3>
-                <div class="company">Alcatraz AI</div>
-                <div class="date">2019</div>
-                <p>
+</div>
+<div class="timeline-item">
+<h3>Computer Vision Intern Supervisor</h3>
+<div class="company">Alcatraz AI</div>
+<div class="date">2019</div>
+<p>
                     Supervised two intern research projects focused on bad-light detection and head-pose estimation from minimal data inputs, guiding algorithm design and implementation.
                 </p>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="education">
-        <h2 class="section-title">Education</h2>
-        <p class="section-subtitle">Academic background and training</p>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <img class="institution-logo" src="university_of_toronto_logo.jpeg" alt="University of Toronto logo">
-                    <div>
-                        <h3>MSc in Computer Science</h3>
-                        <div class="company">University of Toronto, Toronto, ON, Canada</div>
-                        <div class="date">2023 – Present</div>
-                    </div>
-                </div>
-                <p>
-                    Graduate student in the <a href="https://www.embarclab.com/">embARC</a> research group under Professor Nandita Vijaykumar, focusing on computer systems, AI, and robotics.
-                </p>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <img class="institution-logo" src="mcgill_logo.jpeg" alt="McGill University logo">
-                    <div>
-                        <h3>BEng in Mechanical Engineering (Dean’s Honours List)</h3>
-                        <div class="company">McGill University, Montreal, QC, Canada</div>
-                        <div class="date">2010 – 2013</div>
-                    </div>
-                </div>
-                <p>
+</div>
+</div>
+</section>
+<section id="education">
+<h2 class="section-title">Education</h2>
+<p class="section-subtitle">Academic background and training</p>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-header">
+<img alt="University of Toronto logo" class="institution-logo" src="university_of_toronto_logo.jpeg"/>
+<div>
+<h3>MSc in Computer Science</h3>
+<div class="company">University of Toronto, Toronto, ON, Canada</div>
+<div class="date">2023 – 2026</div>
+</div>
+</div>
+<p>Graduate research in the <a href="https://www.embarclab.com/">embARC</a> research group under Professor Nandita Vijaykumar, focused on computer systems, computer vision, generative AI for simulation, robotics, multimodal training, and reinforcement learning.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-header">
+<img alt="McGill University logo" class="institution-logo" src="mcgill_logo.jpeg"/>
+<div>
+<h3>BEng in Mechanical Engineering (Dean’s Honours List)</h3>
+<div class="company">McGill University, Montreal, QC, Canada</div>
+<div class="date">2010 – 2013</div>
+</div>
+</div>
+<p>
                     Training in mechanical design, dynamics, and control, with emphasis on applied mathematics and engineering fundamentals.
                 </p>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <img class="institution-logo" src="mcgill_logo.jpeg" alt="McGill University logo">
-                    <div>
-                        <h3>BCom in Finance (Accounting Concentration)</h3>
-                        <div class="company">McGill University, Montreal, QC, Canada</div>
-                        <div class="date">2006 – 2009</div>
-                    </div>
-                </div>
-                <p>
+</div>
+<div class="timeline-item">
+<div class="timeline-header">
+<img alt="McGill University logo" class="institution-logo" src="mcgill_logo.jpeg"/>
+<div>
+<h3>BCom in Finance (Accounting Concentration)</h3>
+<div class="company">McGill University, Montreal, QC, Canada</div>
+<div class="date">2006 – 2009</div>
+</div>
+</div>
+<p>
                     Business and finance education with a concentration in accounting, providing a foundation in quantitative analysis and decision-making.
                 </p>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <img class="institution-logo" src="dawson_college_logo.jpeg" alt="Dawson College logo">
-                    <div>
-                        <h3>DEC in Pure Science (Dean’s Honours List)</h3>
-                        <div class="company">Dawson College (Honours Program), Montreal, QC, Canada</div>
-                        <div class="date">2004 – 2006</div>
-                    </div>
-                </div>
-                <p>
+</div>
+<div class="timeline-item">
+<div class="timeline-header">
+<img alt="Dawson College logo" class="institution-logo" src="dawson_college_logo.jpeg"/>
+<div>
+<h3>DEC in Pure Science (Dean’s Honours List)</h3>
+<div class="company">Dawson College (Honours Program), Montreal, QC, Canada</div>
+<div class="date">2004 – 2006</div>
+</div>
+</div>
+<p>
                     Intensive honours program in physics and mathematics, building a strong analytical and scientific background.
                 </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="awards">
-        <h2 class="section-title">Honours and Awards</h2>
-        <p class="section-subtitle">Selected scholarships</p>
-
-        <div class="awards-grid">
-            <div class="award-item">
-                <div class="award-year">2011</div>
-                <div class="award-body">
-                    <h3 class="award-name">Engineering Class of 1953 Scholarship</h3>
-                    <p class="award-meta">McGill University</p>
-                </div>
-            </div>
-
-            <div class="award-item">
-                <div class="award-year">2012</div>
-                <div class="award-body">
-                    <h3 class="award-name">Ram &amp; Durga Panda Scholarship</h3>
-                    <p class="award-meta">McGill University</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="publications">
-        <h2 class="section-title">Publications & Patents</h2>
-        <p class="section-subtitle">Selected research contributions and innovations</p>
-        
-        <div class="publications-grid">
-            <div class="publication-card">
-                <div class="pub-badge">Conference Abstract</div>
-                <div class="pub-content">
-                    <div class="pub-journal">ISMRM 22nd Annual Meeting</div>
-                    <h3 class="pub-title">Sub-millimeter conventional fMRI at 3T with a dense, shape-optimized 32-channel posterior head coil</h3>
-                    <div class="pub-authors">
+</div>
+</div>
+</section>
+<section id="awards">
+<h2 class="section-title">Honours and Awards</h2>
+<p class="section-subtitle">Selected scholarships</p>
+<div class="awards-grid">
+<div class="award-item">
+<div class="award-year">2011</div>
+<div class="award-body">
+<h3 class="award-name">Engineering Class of 1953 Scholarship</h3>
+<p class="award-meta">McGill University</p>
+</div>
+</div>
+<div class="award-item">
+<div class="award-year">2012</div>
+<div class="award-body">
+<h3 class="award-name">Ram &amp; Durga Panda Scholarship</h3>
+<p class="award-meta">McGill University</p>
+</div>
+</div>
+</div>
+</section>
+<section id="publications">
+<h2 class="section-title">Publications &amp; Patents</h2>
+<p class="section-subtitle">Selected research contributions and innovations</p>
+<div class="publications-grid">
+<div class="publication-card">
+<div class="pub-badge">Conference Abstract</div>
+<div class="pub-content">
+<div class="pub-journal">ISMRM 22nd Annual Meeting</div>
+<h3 class="pub-title">Sub-millimeter conventional fMRI at 3T with a dense, shape-optimized 32-channel posterior head coil</h3>
+<div class="pub-authors">
                         Boris Keil, <strong>Filip Grigorov</strong>, Andre J. van der Kouwe, Lawrence L. Wald, Reza Farivar
                     </div>
-                    <div class="pub-meta">
-                        <span class="pub-date">📅 2014</span>
-                        <span class="pub-venue">🔬 ISMRM</span>
-                    </div>
-                    <p class="pub-abstract">
+<div class="pub-meta">
+<span class="pub-date">📅 2014</span>
+<span class="pub-venue">🔬 ISMRM</span>
+</div>
+<p class="pub-abstract">
                         High-density 32-channel posterior coil enabling sub-millimeter fMRI at 3T, demonstrating gains in SNR and spatial resolution for visual cortex imaging.
                     </p>
-                    <!-- No DOI for abstracts; add link if you have one -->
-                </div>
-            </div>
-        </div>
-
-
-        <div class="publications-grid">
-            <div class="publication-card">
-                <div class="pub-badge">Journal Article</div>
-                <div class="pub-content">
-                    <div class="pub-journal">Magnetic Resonance in Medicine</div>
-                    <h3 class="pub-title">Dense, shape-optimized posterior 32-channel coil for submillimeter functional imaging of visual cortex at 3T</h3>
-                    <div class="pub-authors">Reza Farivar, <strong>Filip Grigorov</strong>, Andre J. van der Kouwe, Lawrence L. Wald, Boris Keil</div>
-                    <div class="pub-meta">
-                        <span class="pub-date">📅 July 2015</span>
-                        <span class="pub-venue">🔬 Wiley</span>
-                    </div>
-                    <p class="pub-abstract">Research on optimized MRI coil design for high-resolution functional brain imaging, advancing neuroimaging capabilities at 3 Tesla field strength.</p>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1002/mrm.25815" target="_blank" class="pub-link">
-                            <span>📄</span> DOI
+<!-- No DOI for abstracts; add link if you have one -->
+</div>
+</div>
+</div>
+<div class="publications-grid">
+<div class="publication-card">
+<div class="pub-badge">Journal Article</div>
+<div class="pub-content">
+<div class="pub-journal">Magnetic Resonance in Medicine</div>
+<h3 class="pub-title">Dense, shape-optimized posterior 32-channel coil for submillimeter functional imaging of visual cortex at 3T</h3>
+<div class="pub-authors">Reza Farivar, <strong>Filip Grigorov</strong>, Andre J. van der Kouwe, Lawrence L. Wald, Boris Keil</div>
+<div class="pub-meta">
+<span class="pub-date">📅 July 2015</span>
+<span class="pub-venue">🔬 Wiley</span>
+</div>
+<p class="pub-abstract">Research on optimized MRI coil design for high-resolution functional brain imaging, advancing neuroimaging capabilities at 3 Tesla field strength.</p>
+<div class="pub-links">
+<a class="pub-link" href="https://doi.org/10.1002/mrm.25815" target="_blank">
+<span>📄</span> DOI
                         </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="publication-card">
-                <div class="pub-badge patent">US Patent</div>
-                <div class="pub-content">
-                    <div class="pub-journal">US Patent 10,679,443</div>
-                    <h3 class="pub-title">System and method for controlling access to a building with facial recognition</h3>
-                    <div class="pub-authors"><strong>Filip Grigorov</strong>, Maxim Taralov, Vahram Antonyan, Marine Dunoguier, Ventseslav Gaydarzhiev</div>
-                    <div class="pub-meta">
-                        <span class="pub-date">📅 June 2020</span>
-                        <span class="pub-venue">🏢 Alcatraz AI, Inc.</span>
-                    </div>
-                    <p class="pub-abstract">Multi-person facial recognition system for access control using visible light and IR detection, with capability to detect and authenticate multiple individuals simultaneously.</p>
-                    <div class="pub-links">
-                        <a href="https://patents.google.com/patent/US10679443B2/en" target="_blank" class="pub-link">
-                            <span>📜</span> View Patent
+</div>
+</div>
+</div>
+<div class="publication-card">
+<div class="pub-badge patent">US Patent</div>
+<div class="pub-content">
+<div class="pub-journal">US Patent 10,679,443</div>
+<h3 class="pub-title">System and method for controlling access to a building with facial recognition</h3>
+<div class="pub-authors"><strong>Filip Grigorov</strong>, Maxim Taralov, Vahram Antonyan, Marine Dunoguier, Ventseslav Gaydarzhiev</div>
+<div class="pub-meta">
+<span class="pub-date">📅 June 2020</span>
+<span class="pub-venue">🏢 Alcatraz AI, Inc.</span>
+</div>
+<p class="pub-abstract">Multi-person facial recognition system for access control using visible light and IR detection, with capability to detect and authenticate multiple individuals simultaneously.</p>
+<div class="pub-links">
+<a class="pub-link" href="https://patents.google.com/patent/US10679443B2/en" target="_blank">
+<span>📜</span> View Patent
                         </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="research">
-        <h2 class="section-title">Research Interests</h2>
-        <p class="section-subtitle">Areas where I push the boundaries of AI and robotics</p>
-        
-        <div class="interests-grid">
-            <div class="interest-card">
-                <div class="interest-icon">🤖</div>
-                <h3>Robotics</h3>
-                <p>Next frontier embodied intelligence and robotics that physically interact with the real world</p>
-            </div>
-
-            <div class="interest-card">
-                <div class="interest-icon">🦾</div>
-                <h3>RL for Robotics</h3>
-                <p>Reinforcement learning techniques trained in simulation for real-world robotics</p>
-            </div>
-
-            <div class="interest-card">
-                <div class="interest-icon">👁️</div>
-                <h3>Computer Vision</h3>
-                <p>Advanced perception systems for autonomous vehicles and robotics applications</p>
-            </div>
-
-            <div class="interest-card">
-                <div class="interest-icon">✨</div>
-                <h3>Foundation Models</h3>
-                <p>Foundation models for robotic perception, control, and open-world manipulation and navigation.</p>
-            </div>
-
-            <div class="interest-card">
-                <div class="interest-icon">⚛️</div>
-                <h3>Simulation</h3>
-                <p>Physics-based simulations for training and validating autonomous systems</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <h2 class="section-title">Technical Skills</h2>
-        <p class="section-subtitle">Technologies and tools I work with</p>
-        
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3><span class="skill-icon">🧠</span> Deep Learning</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">PyTorch</span>
-                    <span class="skill-tag">TensorFlow</span>
-                    <span class="skill-tag">keras</span>
-                    <span class="skill-tag">TensorRT</span>
-                    <span class="skill-tag">Executorch</span>
-                    <span class="skill-tag">ONNX</span>
-                    <span class="skill-tag">Large Models</span>
-                    <span class="skill-tag">Transformers</span>
-                    <span class="skill-tag">Diffusion</span>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <h3><span class="skill-icon">👁️</span> Computer Vision</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Object Detection</span>
-                    <span class="skill-tag">3D Geometry</span>
-                    <span class="skill-tag">Scene Understanding</span>
-                    <span class="skill-tag">Odometry</span>
-                    <span class="skill-tag">Tracking</span>
-                    <span class="skill-tag">Segmentation</span>
-                    <span class="skill-tag">Image Processing (ISP)</span>
-                    <span class="skill-tag">opencv</span>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <h3><span class="skill-icon">🤖</span> Robotics</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">RL</span>
-                    <span class="skill-tag">Robotic Manipulation</span>
-                    <span class="skill-tag">World Models</span>
-                    <span class="skill-tag">VLAs</span>
-                    <span class="skill-tag">Control</span>
-                    <span class="skill-tag">IsaacLab</span>
-                    <span class="skill-tag">SAPIEN</span>
-                    <span class="skill-tag">Mujoco</span>
-                    <span class="skill-tag">rsl_rl</span>
-                    <span class="skill-tag">ROS</span>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <h3><span class="skill-icon">💻</span> Programming</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">C/C++</span>
-                    <span class="skill-tag">Shell scripting</span>
-                    <span class="skill-tag">Lua</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2 class="section-title">Let's Connect</h2>
-        <div class="contact-content">
-            <p class="section-subtitle">
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="research">
+<h2 class="section-title">Research Interests</h2>
+<p class="section-subtitle">Areas where I push the boundaries of AI and robotics</p>
+<div class="interests-grid">
+<div class="interest-card">
+<div class="interest-icon">🤖</div>
+<h3>Robotics</h3>
+<p>Next frontier embodied intelligence and robotics that physically interact with the real world</p>
+</div>
+<div class="interest-card">
+<div class="interest-icon">🦾</div>
+<h3>RL for Robotics</h3>
+<p>Reinforcement learning techniques trained in simulation for real-world robotics</p>
+</div>
+<div class="interest-card">
+<div class="interest-icon">👁️</div>
+<h3>Computer Vision</h3>
+<p>Advanced perception systems for autonomous vehicles and robotics applications</p>
+</div>
+<div class="interest-card">
+<div class="interest-icon">✨</div>
+<h3>Foundation Models</h3>
+<p>Foundation models for robotic perception, control, and open-world manipulation and navigation.</p>
+</div>
+<div class="interest-card">
+<div class="interest-icon">⚛️</div>
+<h3>Simulation</h3>
+<p>Physics-based simulations for training and validating autonomous systems</p>
+</div>
+</div>
+</section>
+<section id="skills">
+<h2 class="section-title">Technical Skills</h2>
+<p class="section-subtitle">Technologies and tools I work with</p>
+<div class="skills-grid">
+<div class="skill-card">
+<h3><span class="skill-icon">🧠</span> Deep Learning</h3>
+<div class="skill-tags">
+<span class="skill-tag">PyTorch</span>
+<span class="skill-tag">TensorFlow</span>
+<span class="skill-tag">Keras</span>
+<span class="skill-tag">TensorRT</span>
+<span class="skill-tag">Executorch</span>
+<span class="skill-tag">ONNX</span>
+<span class="skill-tag">Large Models</span>
+<span class="skill-tag">Transformers</span>
+<span class="skill-tag">Diffusion</span>
+<span class="skill-tag">LLMs</span><span class="skill-tag">Model Compression</span><span class="skill-tag">Pruning &amp; Sparsity</span><span class="skill-tag">Model Routing</span><span class="skill-tag">Prompt Optimization</span></div>
+</div>
+<div class="skill-card">
+<h3><span class="skill-icon">👁️</span> Computer Vision</h3>
+<div class="skill-tags">
+<span class="skill-tag">Object Detection</span>
+<span class="skill-tag">3D Geometry</span>
+<span class="skill-tag">Scene Understanding</span>
+<span class="skill-tag">Odometry</span>
+<span class="skill-tag">Tracking</span>
+<span class="skill-tag">Segmentation</span>
+<span class="skill-tag">Image Processing (ISP)</span>
+<span class="skill-tag">OpenCV</span>
+</div>
+</div>
+<div class="skill-card">
+<h3><span class="skill-icon">🤖</span> Robotics</h3>
+<div class="skill-tags">
+<span class="skill-tag">RL</span>
+<span class="skill-tag">Robotic Manipulation</span>
+<span class="skill-tag">World Models</span>
+<span class="skill-tag">VLAs</span>
+<span class="skill-tag">Control</span>
+<span class="skill-tag">IsaacLab</span>
+<span class="skill-tag">SAPIEN</span>
+<span class="skill-tag">MuJoCo</span>
+<span class="skill-tag">RSL-RL</span>
+<span class="skill-tag">ROS</span>
+</div>
+</div>
+<div class="skill-card">
+<h3><span class="skill-icon">💻</span> Programming</h3>
+<div class="skill-tags">
+<span class="skill-tag">Python</span>
+<span class="skill-tag">C/C++</span>
+<span class="skill-tag">Shell scripting</span>
+<span class="skill-tag">Lua</span>
+</div>
+</div>
+</div>
+</section>
+<section id="contact">
+<h2 class="section-title">Let's Connect</h2>
+<div class="contact-content">
+<p class="section-subtitle">
                 Interested in collaboration, research opportunities, or just want to chat about AI and autonomous systems? Feel free to reach out!
             </p>
-            <div class="social-links">
-                <a href="https://github.com/filipgrigorov-portfolio" class="social-link" target="_blank">
-                    <span>💻</span>
-                </a>
-                <a href="https://linkedin.com" class="social-link" target="_blank">
-                    <span>💼</span>
-                </a>
-                <a href="mailto:filipg@cs.toronto.edu" class="social-link">
-                    <span>📧</span>
-                </a>
-                <a href="https://scholar.google.com/citations?user=2VDSh8gAAAAJ&hl=en" class="social-link" target="_blank">
-                    <span>📚</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <script>
+<div class="social-links">
+<a class="social-link" href="https://github.com/filipgrigorov-portfolio" target="_blank">
+<span>💻</span>
+</a>
+<a class="social-link" href="https://linkedin.com" target="_blank">
+<span>💼</span>
+</a>
+<a class="social-link" href="mailto:filipg@cs.toronto.edu">
+<span>📧</span>
+</a>
+<a class="social-link" href="https://scholar.google.com/citations?user=2VDSh8gAAAAJ&amp;hl=en" target="_blank">
+<span>📚</span>
+</a>
+</div>
+</div>
+</section>
+<script>
         // Theme toggle
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
